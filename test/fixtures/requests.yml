@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  venue_id: 1
+  note: MyText
+  departure_time_slots: MyText
+  earliest_departure_time: 2012-12-28 01:01:27
+  latest_departure_time: 2012-12-28 01:01:27
+  stay_duration: 1
+  stay_duration_margin: 1
+  accommodation_id: 1
+  resolution: MyText
+
+two:
+  user_id: 1
+  venue_id: 1
+  note: MyText
+  departure_time_slots: MyText
+  earliest_departure_time: 2012-12-28 01:01:27
+  latest_departure_time: 2012-12-28 01:01:27
+  stay_duration: 1
+  stay_duration_margin: 1
+  accommodation_id: 1
+  resolution: MyText

@@ -1,0 +1,19 @@
+{
+	"folders":
+	[
+		{
+			"path": "/home/jiehan/workspace/peddie_taxi"
+		}
+	],
+
+  "settings":
+  {
+    "todo": {
+      "folder_exclude_patterns": [
+          "vendor", 
+          "tmp",
+          "log"
+      ]
+    }
+  }
+}

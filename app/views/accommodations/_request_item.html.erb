@@ -1,0 +1,14 @@
+<%# task: display div.venue-list_item's, incl. its name, action btns %>
+<%# h2, span4 %>
+<div class="venue-list_item" 
+  data-latitude="<%= venue.latitude %>"
+  data-longitude="<%= venue.longitude %>"
+  data-name="<%= venue.name %>">
+
+  <div class="row">
+    <div class="span4">
+      <h2><%= link_to venue.name, venue_path(venue) %></h2>
+    </div>
+  </div>
+
+</div>

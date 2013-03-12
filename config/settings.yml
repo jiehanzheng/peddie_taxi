@@ -1,0 +1,19 @@
+geo:
+  region_bias: us
+  locations:
+    base:
+      latitude: 40.264
+      longitude: -74.522
+  boundaries:
+    autocomplete:
+      latlon1:
+        latitude: 41.1
+        longitude: -75.9
+      latlon2:
+        latitude: 39
+        longitude: -73
+
+google:
+  api:
+    simple:
+      key: "AIzaSyB1JJByWOaoOIjf1P-sg5XvzoBBFLi8NpY"

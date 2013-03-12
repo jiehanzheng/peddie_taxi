@@ -1,0 +1,68 @@
+<%# h1, span12 %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag "venues_map" %>
+  <%= javascript_include_tag "accommodations" %>
+<% end %>
+<div class="row">
+  <div class="span4">
+    <div class="page-header">
+      <h1>Plan your route</h1>
+      <p class="text-info">...and check if you can give a ride on your way there.</p>
+    </div>
+
+    <legend>Destination</legend>
+    <label>Where are you going? <span class="label">Optional</span></label>
+    <input type="text" class="input-block-level" placeholder="Address of destination"
+           data-enable-autocomplete="true" data-autocomplete-type="geocode"
+           data-autocomplete-callback-behavior="draw" />
+
+    <label>Departure time</label>
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Today, next 14 days
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="javascript:void(0);">Today</a></li>
+        <li><a href="javascript:void(0);">Tuesday</a></li>
+      </ul>
+    </div>
+
+    <div class="btn-group">
+      <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+        Any time
+        <span class="caret"></span>
+      </a>
+      <ul class="dropdown-menu">
+        <li><a href="javascript:void(0);">Morning</a></li>
+        <li><a href="javascript:void(0);">Around noon</a></li>
+        <li><a href="javascript:void(0);">Afternoon</a></li>
+        <li><a href="javascript:void(0);">Evening</a></li>
+      </ul>
+    </div>
+
+    <legend>Select requests</legend>
+    <script>
+      window.PeddieTaxi || (window.PeddieTaxi = {});
+      PeddieTaxi.all_requests = <%= raw render template: 'requests/_list.json.rabl' %>;
+    </script>
+    <div class="alert alert-info alert-block">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <p>Once your route is drawn, select a few requests along your calculated
+        route by clicking on red markers.  Once a request is selected by you,
+        it disappears from the map so that it won&rsquo;t overlap other markers.</p>
+      <p>You will be able to see details of each request below.  Before you submit
+        this form, nothing is finalized.  You can even change your decision after
+        you submit.</p>
+    </div>
+    <div id="selected_requests">      
+    </div>
+
+
+  </div>
+  <div class="span8">
+    <div id="venues_map" class="well"
+         data-base-latitude="<%= Settings.geo.locations.base.latitude %>"
+         data-base-longitude="<%= Settings.geo.locations.base.longitude %>"></div>
+  </div>
+</div>

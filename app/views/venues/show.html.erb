@@ -1,0 +1,89 @@
+<% content_for :scripts do %>
+  <%= javascript_include_tag "venues_map" %>
+  <%= javascript_include_tag "hero_unit_bg_map" %>
+<% end %>
+<div id="venues_show">
+  <div class="hero-unit"
+    data-lat="<%= @venue.latitude %>"
+    data-lon="<%= @venue.longitude %>"
+    data-z="16"
+    data-filter="bright"
+    data-mlat0="<%= @venue.latitude %>"
+    data-mlon0="<%= @venue.longitude %>"
+    data-mico0="18485"
+    data-show="1">
+    <h1><%= @venue.name %></h1>
+    <p><%= @venue.street %>, <%= @venue.city %></p>
+    <p>
+      <%= link_to "Request Taxi", { :controller => "requests",
+                            :action => "new",
+                            :venue_id => @venue.id },
+                          { :class => "btn btn-primary btn-large" } %>
+      <%= link_to "Edit", edit_venue_path, { :class => "btn btn-large" } %>
+      <%= link_to "Delete", {}, { :confirm => "Are you sure?", 
+                                  :method => :delete, 
+                                  :class => "btn btn-danger btn-large" } %>
+    </p>
+  </div>
+
+  <div class="row">
+    <div class="page-header">
+      <h2>About this venue</h2>
+    </div>
+    <div class="span9">
+      <table class="table table-bordered table-hover venues-map-data-source">
+        <tbody>
+          <tr>
+            <th scope="row">Description</th>
+            <td><%= simple_format( @venue.description ) %></td>
+          </tr>
+          <tr>
+            <th scope="row">Venue creator</th>
+            <td>?</td>
+          </tr>
+          <tr>
+            <th scope="row">Popularity</th>
+            <td>? people have requested to get here</td>
+          </tr>
+          <tr style="display: none;" class="additional-data">
+            <th scope="row">Geographical data</th>
+            <td>
+              <div style="display: hidden;" id="destination" class="venue-list_item"
+                data-latitude="<%= @venue.latitude %>"
+                data-longitude="<%= @venue.longitude %>"></div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="page-header">
+      <h2>Directions <small>see estimated travel time and turn-by-turn direction</small></h2>
+    </div>
+    <div class="span6">
+      <div id="alert_select_travel_mode" class="alert alert-info">
+        Select a travel mode to start planning the route.
+      </div>
+      <div id="travel_mode_selector" class="btn-group">
+        <button type="button" class="btn btn-primary" value="WALKING">Walking</button>
+        <button type="button" class="btn btn-primary" value="BICYCLING">Bicycling</button>
+        <button type="button" class="btn btn-primary" value="DRIVING">Driving</button>
+      </div>
+      <div id="directions_panel"></div>
+    </div>
+    <div class="span6">
+      <div id="venues_map" class="well"
+        data-base-latitude="<%= Settings.geo.locations.base.latitude %>"
+        data-base-longitude="<%= Settings.geo.locations.base.longitude %>"
+        data-enable-direction="true"
+        data-travel-mode-selector="#travel_mode_selector button"
+        data-hide-once-travel-mode-is-selected="#alert_select_travel_mode"
+        data-destination-selector=".venues-map-data-source #destination"
+        data-enable-direction-display="true"
+        data-direction-display-target="#directions_panel"></div>
+    </div>
+  </div>
+
+</div>

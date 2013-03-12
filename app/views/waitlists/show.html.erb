@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @waitlist.user_id %>
+</p>
+
+<p>
+  <b>Accommodation:</b>
+  <%= @waitlist.accommodation_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_waitlist_path(@waitlist) %> |
+<%= link_to 'Back', waitlists_path %>
