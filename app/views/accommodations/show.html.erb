@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @accommodation.venue_id %>
+</p>
+
+<p>
+  <strong>Rides:</strong>
+  <%= @accommodation.rides_id %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @accommodation.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_accommodation_path(@accommodation) %> |
+<%= link_to 'Back', accommodations_path %>

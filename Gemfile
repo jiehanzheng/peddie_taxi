@@ -22,8 +22,17 @@ gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 1.0.1'
+# I don't want to "Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder"
+# gem 'jbuilder', '~> 1.0.1'
+
+# Settings variable
+gem "rails_config"
+
+# Easy Bootstrap integration
+gem "bootstrap-sass", '~> 2.3.0.1'
+
+# Automatically highlights current tab on the nav bar
+gem "tabs_on_rails"
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

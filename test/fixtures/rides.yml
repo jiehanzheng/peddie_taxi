@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  user_id: 1
+  leaving_at: 2013-03-15 12:46:00
+  return_at: 2013-03-15 12:46:00
+
+two:
+  user_id: 1
+  leaving_at: 2013-03-15 12:46:00
+  return_at: 2013-03-15 12:46:00

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @proposal.user_id %>
+</p>
+
+<p>
+  <strong>Venue:</strong>
+  <%= @proposal.venue_id %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @proposal.comments %>
+</p>
+
+<p>
+  <strong>Leaving at:</strong>
+  <%= @proposal.leaving_at %>
+</p>
+
+<p>
+  <strong>Return at:</strong>
+  <%= @proposal.return_at %>
+</p>
+
+
+<%= link_to 'Edit', edit_proposal_path(@proposal) %> |
+<%= link_to 'Back', proposals_path %>

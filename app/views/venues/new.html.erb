@@ -1,0 +1,14 @@
+<%# pinpoint, get lat/long, ask for name, type %>
+<%# h1, span12 %>
+<div class="row visible-phone">
+  <div class="alert alert-info">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>The map has been moved below the form</strong> because of 
+    insufficient horizontal space.  If you are on a laptop or desktop, maximize 
+    the window to get the best experience.
+  </div>
+</div>
+<div id="venue_new" class="row">
+  <%= render :partial => 'form', :locals => { :h1 => "Add a venue first",
+                                              :@venue => @venue } %>
+</div>
