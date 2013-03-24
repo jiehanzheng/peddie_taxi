@@ -3,6 +3,10 @@ PeddieTaxi::Application.routes.draw do
   resources :proposals
   resources :rides
   resources :venues
+  resources :signups
+
+  post '/auth/:provider/callback' => 'sessions#create'
+  delete '/sessions' => 'sessions#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

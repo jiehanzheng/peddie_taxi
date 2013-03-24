@@ -1,0 +1,1 @@
+Time::DATE_FORMATS[:peddie_dumb] = "%Y-%m-%d %H:%M"

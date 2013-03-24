@@ -54,7 +54,7 @@
       <%= f.label :address, :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :address, { :class => 'text_field input-block-level',
-                                    :placeholder => "e.g. 70 Princeton Hightstown Road, East Windsor, NJ, United States" } %>
+                                     :placeholder => "e.g. 70 Princeton Hightstown Road, East Windsor, NJ, United States" } %>
       </div>
     </div>
 
@@ -114,7 +114,7 @@
   <div class="map-data-source"
        data-base-latitude="<%= Settings.geo.locations.base.latitude %>"
        data-base-longitude="<%= Settings.geo.locations.base.longitude %>"></div>
-  <div class="map" class="well"
+  <div class="map well" 
        data-base-latitude="<%= Settings.geo.locations.base.latitude %>"
        data-base-longitude="<%= Settings.geo.locations.base.longitude %>"
        data-enable-draggable-marker="true"

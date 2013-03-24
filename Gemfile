@@ -34,8 +34,11 @@ gem "rails_config"
 # Navbar tabs
 gem "tabs_on_rails"
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+# Peddie auth
+gem "ruby-openid-apps-discovery"
+gem 'bcrypt-ruby', '~> 3.0.0'
+gem "omniauth-identity"
+gem "omniauth-openid"
 
 # Use unicorn as the app server
 # gem 'unicorn'

@@ -89,9 +89,16 @@ PeddieTaxi.bootstrapMap = bootstrapMap
 draggableMarker = (jqMap, map) ->
   if $('.map').data 'enable-draggable-marker'
 
-    # FIXME: if synced field already has a value, drop the marker there
-    markerLagLng = new google.maps.LatLng jqMap.data("base-latitude") + 0.001, 
-                                          jqMap.data("base-longitude") - 0.001
+    # if synced field already has a value, drop the marker there
+    if $(jqMap.data 'draggable-marker-sync-lat').val() and $(jqMap.data 'draggable-marker-sync-lon').val()
+      try
+        markerLagLng = new google.maps.LatLng $(jqMap.data 'draggable-marker-sync-lat').val(), 
+                                              $(jqMap.data 'draggable-marker-sync-lon').val()
+      catch error
+        console.log "draggableMarker: #{error}"
+
+    markerLagLng ||= new google.maps.LatLng jqMap.data("base-latitude") + 0.001, 
+                                            jqMap.data("base-longitude") - 0.001
 
     marker = new google.maps.Marker {
       position: markerLagLng
@@ -106,6 +113,8 @@ draggableMarker = (jqMap, map) ->
 
     # TODO: the other way around
 
+    # following line causes Uncaught RangeError: Maximum call stack size exceeded.  Why?
+    # fitMarkers map, [jqMap.data("base-marker").getPosition(), markerLagLng]
     jqMap.data 'draggable-marker-handle', marker
 
 
@@ -149,33 +158,6 @@ removeParentUponClick = (jqMap, map) ->
     $(this).parent().slideUp("slow")
 
 
-placePinAtAddress = (jqMap, map) ->
-  $("a.btn.place-pin-at-address").click ->
-    geocoder = new google.maps.Geocoder()
-
-    street = $($(this).data 'source-street').val()
-    city = $($(this).data 'source-city').val()
-
-    console.log "Looking up #{street}, #{city}"
-
-    geocoder.geocode { 'address': "#{street}, #{city}" }, (results, status) =>
-      if google.maps.GeocoderStatus.OK == status
-        map.setCenter results[0].geometry.location
-        jqMap.data('draggable-marker-handle').setPosition results[0].geometry.location
-        fitMarkers map, [jqMap.data("base-marker").getPosition(), jqMap.data('draggable-marker-handle').getPosition()]
-        jqMap.data('draggable-marker-handle').setAnimation google.maps.Animation.BOUNCE
-      else
-        errorAlert = """
-                     <div class="alert alert-error">
-                     <button type="button" 
-                             class="close" 
-                             data-dismiss="alert">&times;</button>
-                     <strong>Error:</strong> #{status}
-                     """
-        
-        $(this).parent().prepend( errorAlert )
-
-
 autocomplete = (jqMap, map) ->
   autocompleteBounds = new google.maps.LatLngBounds(
     new google.maps.LatLng( <%= Settings.geo.boundaries.autocomplete.latlon1.latitude %>,
@@ -192,8 +174,6 @@ autocomplete = (jqMap, map) ->
     google.maps.event.addListener autocomplete, 'place_changed', =>
       place = autocomplete.getPlace()
 
-      console.log place
-
       # marker and viewport
       jqMap.data('draggable-marker-handle').setPosition(place.geometry.location)
       fitMarkers map, [jqMap.data("base-marker").getPosition(), place.geometry.location]
@@ -204,6 +184,7 @@ autocomplete = (jqMap, map) ->
       $($(this).data 'autocomplete-output-vicinity').val place.vicinity
       $($(this).data 'autocomplete-output-website').val place.website
       $($(this).data 'autocomplete-output-reference').val place.reference
+
 
 requestDirection = (jqMap, map) ->
   if jqMap.data("enable-direction")

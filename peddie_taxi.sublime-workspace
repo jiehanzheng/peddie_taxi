@@ -475,110 +475,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "app/views/proposals/new.html.erb",
-			"settings":
-			{
-				"buffer_size": 118,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/proposals/_form.html.erb",
-			"settings":
-			{
-				"buffer_size": 3205,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "db/migrate/20130315182248_rename_return_at_to_returning_at_in_proposals.rb",
-			"settings":
-			{
-				"buffer_size": 150,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/proposals/show.html.erb",
-			"settings":
-			{
-				"buffer_size": 466,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/proposals/index.html.erb",
-			"settings":
-			{
-				"buffer_size": 827,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/proposals/edit.html.erb",
-			"settings":
-			{
-				"buffer_size": 116,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/controllers/proposals_controller.rb",
-			"settings":
-			{
-				"buffer_size": 1955,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/venues/_form.html.erb",
-			"settings":
-			{
-				"buffer_size": 5419,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/assets/javascripts/proposals.js.coffee",
-			"settings":
-			{
-				"buffer_size": 489,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/assets/stylesheets/application.css.scss",
-			"settings":
-			{
-				"buffer_size": 778,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/views/venues/show.html.erb",
-			"settings":
-			{
-				"buffer_size": 2833,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/proposal.rb",
-			"settings":
-			{
-				"buffer_size": 60,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "app/models/venue.rb",
-			"settings":
-			{
-				"buffer_size": 59,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -689,36 +585,56 @@
 	},
 	"file_history":
 	[
-		"/home/jiehan/workspace/peddie_taxi/app/views/layouts/application.html.erb",
-		"/home/jiehan/workspace/peddie_taxi/vendor/assets/javascripts/bootstrap-datetimepicker.js",
-		"/home/jiehan/workspace/peddie_taxi/app/assets/stylesheets/application.css.scss",
-		"/home/jiehan/workspace/peddie_taxi/app/views/venues/new.html.erb",
-		"/home/jiehan/workspace/peddie_taxi/app/assets/javascripts/application.js",
-		"/home/jiehan/workspace/peddie_taxi/app/views/venues/edit.html.erb",
-		"/home/jiehan/workspace/peddie_taxi/app/views/venues/show.html.erb",
+		"/home/jiehan/workspace/peddie_taxi/config/initializers/omniauth.rb",
 		"/home/jiehan/workspace/peddie_taxi/app/assets/javascripts/map.js.coffee.erb",
-		"/home/jiehan/workspace/peddie_taxi/config/application.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/assets/stylesheets/application.css.scss",
+		"/home/jiehan/workspace/peddie_taxi/app/assets/javascripts/application.js",
 		"/home/jiehan/workspace/peddie_taxi/Gemfile",
+		"/home/jiehan/workspace/peddie_taxi/config/application.rb",
 		"/home/jiehan/workspace/peddie_taxi/config/routes.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/models/venue.rb",
+		"/home/jiehan/workspace/peddie_taxi/db/schema.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/models/signup.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/models/proposal.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/models/user.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/views/venues/_form.html.erb",
+		"/home/jiehan/workspace/peddie_taxi/app/views/proposals/_form.html.erb",
+		"/home/jiehan/workspace/peddie_taxi/config/initializers/time_formats.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/helpers/application_helper.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/controllers/application_controller.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/controllers/sessions_controller.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/controllers/venues_controller.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/controllers/proposals_controller.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/views/layouts/application.html.erb",
+		"/home/jiehan/workspace/peddie_taxi/lib/exceptions/authentication.rb",
+		"/home/jiehan/workspace/peddie_taxi/db/migrate/20130324194147_create_users.rb",
+		"/home/jiehan/workspace/peddie_taxi/config/initializers/strong_parameters.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/views/venues/index.html.erb",
+		"/home/jiehan/workspace/peddie_taxi/app/views/venues/show.html.erb",
+		"/home/jiehan/workspace/peddie_taxi/db/migrate/20130324044232_rename_for_google_maps_api_in_venues.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/assets/javascripts/proposals.js.coffee",
+		"/home/jiehan/workspace/peddie_taxi/app/views/proposals/edit.html.erb",
+		"/home/jiehan/workspace/peddie_taxi/app/views/proposals/index.html.erb",
+		"/home/jiehan/workspace/peddie_taxi/app/views/proposals/show.html.erb",
+		"/home/jiehan/workspace/peddie_taxi/db/migrate/20130315182248_rename_return_at_to_returning_at_in_proposals.rb",
+		"/home/jiehan/workspace/peddie_taxi/app/views/proposals/new.html.erb",
+		"/home/jiehan/workspace/peddie_taxi/app/assets/stylesheets/application.css",
+		"/home/jiehan/workspace/peddie_taxi/vendor/assets/javascripts/bootstrap-datetimepicker.js",
+		"/home/jiehan/workspace/peddie_taxi/app/views/venues/new.html.erb",
+		"/home/jiehan/workspace/peddie_taxi/app/views/venues/edit.html.erb",
 		"/home/jiehan/workspace/peddie_taxi/config/settings.yml",
 		"/home/jiehan/workspace/peddie_taxi/app/assets/javascripts/hook_system.js.coffee",
 		"/home/jiehan/workspace/peddie_taxi/app/assets/stylesheets/venues.css.scss",
 		"/home/jiehan/workspace/peddie_taxi/app/views/venues/_list_item.html.erb",
-		"/home/jiehan/workspace/peddie_taxi/app/controllers/venues_controller.rb",
-		"/home/jiehan/workspace/peddie_taxi/app/helpers/application_helper.rb",
-		"/home/jiehan/workspace/peddie_taxi/app/views/venues/_form.html.erb",
-		"/home/jiehan/workspace/peddie_taxi/app/views/venues/index.html.erb",
 		"/home/jiehan/workspace/peddie_taxi/app/assets/javascripts/map.js.coffee",
 		"/home/jiehan/workspace/peddie_taxi/app/views/venues/show.json.jbuilder",
 		"/home/jiehan/workspace/peddie_taxi/app/controllers/rides_controller.rb",
-		"/home/jiehan/workspace/peddie_taxi/app/controllers/proposals_controller.rb",
 		"/home/jiehan/workspace/peddie_taxi/app/assets/stylesheets/global.css.scss",
 		"/home/jiehan/workspace/peddie_taxi/config/environments/development.rb",
 		"/home/jiehan/workspace/peddie_taxi/app/assets/stylesheets/scaffolds.css.scss",
 		"/home/jiehan/workspace/peddie_taxi/db/migrate/20130315043643_create_venues.rb",
 		"/home/jiehan/workspace/peddie_taxi/db/migrate/20130315043912_create_proposals.rb",
 		"/home/jiehan/workspace/peddie_taxi/db/migrate/20130315044600_create_rides.rb",
-		"/home/jiehan/workspace/peddie_taxi/app/assets/stylesheets/application.css",
 		"/home/jiehan/workspace/peddie_taxi/db/migrate/20130315044028_create_accommodations.rb",
 		"/home/jiehan/workspace/peddie_taxi/db/migrate/20130315044118_create_rides.rb",
 		"/home/jiehan/.config/sublime-text-3/Packages/User/GitGutter.sublime-settings",
@@ -729,7 +645,6 @@
 		"/home/jiehan/.config/sublime-text-3/Packages/Default/Preferences.sublime-settings",
 		"/home/jiehan/workspace/peddie_taxi/app/assets/stylesheets/bootstrap_and_overrides.css.less",
 		"/home/jiehan/workspace/peddie_taxi/app/assets/javascripts/callback_registry.js.coffee",
-		"/home/jiehan/workspace/peddie_taxi/app/models/venue.rb",
 		"/home/jiehan/workspace/peddie_taxi/app/views/requests/_list.json.rabl",
 		"/home/jiehan/workspace/peddie_taxi/app/models/request.rb",
 		"/home/jiehan/workspace/peddie_taxi/app/assets/javascripts/venues_map.js.coffee.erb",
@@ -774,7 +689,6 @@
 		"/home/jiehan/workspace/peddie_taxi/app/assets/javascripts/venues_map.js.coffee",
 		"/home/jiehan/workspace/peddie_taxi/vendor/assets/images/visual-case.it/COPYING",
 		"/home/jiehan/workspace/peddie_taxi/app/assets/javascripts/venues.js.coffee",
-		"/home/jiehan/workspace/peddie_taxi/app/controllers/application_controller.rb",
 		"/home/jiehan/workspace/peddie_taxi/app/assets/stylesheets/gmaps4rails.css",
 		"/home/jiehan/workspace/peddie_taxi/db/migrate/20121215210017_create_venues.rb",
 		"/home/jiehan/workspace/rpi/output.wav",
@@ -798,25 +712,7 @@
 		"/home/jiehan/workspace/JFusionTbl/org/jiehan/util/fusiontables/Test.java",
 		"/home/jiehan/workspace/JFusionTbl/org/scribe/builder/api/KaixinApi20.java",
 		"/home/jiehan/workspace/JFusionTbl/org/scribe/builder/api/ConstantContactApi2.java",
-		"/home/jiehan/workspace/JFusionTbl/org/scribe/builder/api/Foursquare2Api.java",
-		"/home/jiehan/workspace/JFusionTbl/org/scribe/builder/api/DefaultApi10a.java",
-		"/home/jiehan/workspace/JFusionTbl/org/jiehan/util/oauth/scribe/provider/Google2Api.java",
-		"/home/jiehan/workspace/JFusionTbl/org/jiehan/util/oauth/scribe/provider/GoogleApi.java",
-		"/home/jiehan/workspace/JFusionTbl/org/scribe/builder/api/GoogleApi.java",
-		"/home/jiehan/workspace/JFusionTbl/org/scribe/model/Token.java",
-		"/home/jiehan/workspace/JFusionTbl/org/json/JSONObject.java",
-		"/home/jiehan/workspace/JFusionTbl/vnet/java/util/MySQLUtils.java",
-		"/home/jiehan/Documents/Peddie/Computer Science 2012-2013/mergesort performance/chart.tex",
-		"/home/jiehan/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/home/jiehan/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-		"/C/Users/Jiehan/Desktop/install-tl-20121104/install-tl.bat",
-		"/D/jiehan/workspace/JFusionTbl/org/jiehan/util/fusiontables/  bad source file",
-		"/C/Users/Jiehan/AppData/Roaming/Sublime Text 2/Packages/Java/JavaC.sublime-build",
-		"/D/jiehan/workspace/JFusionTbl/org/jiehan/util/fusiontables/JFusionTbl.java",
-		"/D/jiehan/workspace/JFusionTbl/org/jiehan/util/fusiontables/ObjectConverter.java",
-		"/D/jiehan/workspace/JFusionTbl/org.jiehan.util.fusiontable/Test.java",
-		"/D/jiehan/workspace/JFusionTbl/org.jiehan.util.fusiontable/JFusionTbl.java",
-		"/D/jiehan/workspace/JFusionTbl/org.jiehan.util.fusiontable/ObjectConverter.java"
+		"/home/jiehan/workspace/JFusionTbl/org/scribe/builder/api/Foursquare2Api.java"
 	],
 	"find":
 	{
@@ -835,6 +731,28 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"last_name",
+			"match",
+			"ForbiddenAttributesProtection",
+			"width",
+			"height",
+			"val",
+			"map_instantiated",
+			"error",
+			"200",
+			"params",
+			"address",
+			"name",
+			"website",
+			"address",
+			"name",
+			"longitude",
+			"latitude",
+			"vicinity",
+			"address",
+			"street",
+			"control",
+			"fitMarkers",
 			"leaving_at",
 			"\"><a class=\"accordion-toggle\"",
 			"dd/MM/yyyy hh:mm:ss",
@@ -940,29 +858,7 @@
 			"shorts",
 			"SLICE",
 			"slice",
-			"pylab",
-			"[-inf]",
-			"(<(?=.*)|(>))",
-			".*(?=<.*>)",
-			"selection",
-			"Double",
-			"print",
-			"httpsGet",
-			"getOrRefreshAccessToken",
-			"getAccessToken",
-			"httpsPost",
-			"URL",
-			"url",
-			"URL",
-			"url",
-			"objResponse",
-			"connnection",
-			"HttpURLConnection",
-			"con",
-			"Con",
-			"con",
-			"ub",
-			"'"
+			"pylab"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -988,378 +884,13 @@
 	"groups":
 	[
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app/views/proposals/new.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 118,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/views/proposals/_form.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3205,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2653,
-								2653
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 360.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "db/migrate/20130315182248_rename_return_at_to_returning_at_in_proposals.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 150,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								70,
-								70
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/views/proposals/show.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 466,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								152,
-								152
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/views/proposals/index.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 827,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								165,
-								165
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/views/proposals/edit.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 116,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								116,
-								116
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "app/controllers/proposals_controller.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1955,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1955,
-								1955
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 765.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		},
 		{
-			"selected": 1,
 			"sheets":
 			[
-				{
-					"buffer": 7,
-					"file": "app/views/venues/_form.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5419,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								3392,
-								3392
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "app/assets/javascripts/proposals.js.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 489,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								489,
-								489
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CoffeeScript/CoffeeScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/assets/stylesheets/application.css.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 778,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								634,
-								634
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SCSS/SCSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "app/views/venues/show.html.erb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2833,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								811,
-								811
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Rails/HTML (Rails).tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "app/models/proposal.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 60,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								60,
-								60
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "app/models/venue.rb",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 59,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								59,
-								59
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Ruby/Ruby.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
@@ -1417,8 +948,148 @@
 		"selected_items":
 		[
 			[
+				"applayou",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"u",
+				"app/models/user.rb"
+			],
+			[
+				"prorb",
+				"app/models/proposal.rb"
+			],
+			[
+				"signrb",
+				"app/models/signup.rb"
+			],
+			[
+				"schema",
+				"db/schema.rb"
+			],
+			[
 				"procon",
 				"app/controllers/proposals_controller.rb"
+			],
+			[
+				"vencon",
+				"app/controllers/venues_controller.rb"
+			],
+			[
+				"venue",
+				"app/models/venue.rb"
+			],
+			[
+				"sesscon",
+				"app/controllers/sessions_controller.rb"
+			],
+			[
+				"propcon",
+				"app/controllers/proposals_controller.rb"
+			],
+			[
+				"apprb",
+				"config/application.rb"
+			],
+			[
+				"userrb",
+				"app/models/user.rb"
+			],
+			[
+				"userb",
+				"app/models/user.rb"
+			],
+			[
+				"miguser",
+				"db/migrate/20130324194147_create_users.rb"
+			],
+			[
+				"appcon",
+				"app/controllers/application_controller.rb"
+			],
+			[
+				"routrb",
+				"config/routes.rb"
+			],
+			[
+				"sessoncon",
+				"app/controllers/sessions_controller.rb"
+			],
+			[
+				"cont",
+				"app/controllers/sessions_controller.rb"
+			],
+			[
+				"applay",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"sessioncon",
+				"app/controllers/sessions_controller.rb"
+			],
+			[
+				"venrb",
+				"app/models/venue.rb"
+			],
+			[
+				"gemf",
+				"Gemfile"
+			],
+			[
+				"venform",
+				"app/views/venues/_form.html.erb"
+			],
+			[
+				"applayout",
+				"app/views/layouts/application.html.erb"
+			],
+			[
+				"rou",
+				"config/routes.rb"
+			],
+			[
+				"apphel",
+				"app/helpers/application_helper.rb"
+			],
+			[
+				"helper",
+				"app/helpers/application_helper.rb"
+			],
+			[
+				"venshow",
+				"app/views/venues/show.html.erb"
+			],
+			[
+				"schem",
+				"db/schema.rb"
+			],
+			[
+				"appjs",
+				"app/assets/javascripts/application.js"
+			],
+			[
+				"propoform",
+				"app/views/proposals/_form.html.erb"
+			],
+			[
+				"propofo",
+				"app/assets/javascripts/proposals.js.coffee"
+			],
+			[
+				"venin",
+				"app/views/venues/index.html.erb"
+			],
+			[
+				"appcss",
+				"app/assets/stylesheets/application.css.scss"
+			],
+			[
+				"mapjs",
+				"app/assets/javascripts/map.js.coffee.erb"
+			],
+			[
+				"rout",
+				"config/routes.rb"
 			],
 			[
 				"proed",
@@ -1429,18 +1100,6 @@
 				"app/views/proposals/index.html.erb"
 			],
 			[
-				"venrb",
-				"app/models/venue.rb"
-			],
-			[
-				"prorb",
-				"app/models/proposal.rb"
-			],
-			[
-				"venshow",
-				"app/views/venues/show.html.erb"
-			],
-			[
 				"proshow",
 				"app/views/proposals/show.html.erb"
 			],
@@ -1449,16 +1108,8 @@
 				"vendor/assets/javascripts/bootstrap-datetimepicker.js"
 			],
 			[
-				"appcss",
-				"app/assets/stylesheets/application.css.scss"
-			],
-			[
 				"layapp",
 				"app/views/layouts/application.html.erb"
-			],
-			[
-				"appjs",
-				"app/assets/javascripts/application.js"
 			],
 			[
 				"propojs",
@@ -1477,10 +1128,6 @@
 				"app/assets/stylesheets/application.css.scss"
 			],
 			[
-				"venform",
-				"app/views/venues/_form.html.erb"
-			],
-			[
 				"proform",
 				"app/views/proposals/_form.html.erb"
 			],
@@ -1491,14 +1138,6 @@
 			[
 				"apperb",
 				"app/views/layouts/application.html.erb"
-			],
-			[
-				"apprb",
-				"config/application.rb"
-			],
-			[
-				"mapjs",
-				"app/assets/javascripts/map.js.coffee.erb"
 			],
 			[
 				"venedithtml",
@@ -1513,16 +1152,8 @@
 				"app/controllers/rides_controller.rb"
 			],
 			[
-				"vencon",
-				"app/controllers/venues_controller.rb"
-			],
-			[
 				"devrb",
 				"config/environments/development.rb"
-			],
-			[
-				"apphel",
-				"app/helpers/application_helper.rb"
 			],
 			[
 				"route",
@@ -1531,10 +1162,6 @@
 			[
 				"applierb",
 				"app/views/layouts/application.html.erb"
-			],
-			[
-				"gemf",
-				"Gemfile"
 			],
 			[
 				"coffee",
@@ -1613,10 +1240,6 @@
 				"app/views/requests/index.html.erb"
 			],
 			[
-				"applayou",
-				"app/views/layouts/application.html.erb"
-			],
-			[
 				"",
 				"config/settings.yml"
 			],
@@ -1643,10 +1266,6 @@
 			[
 				"venitem",
 				"app/views/venues/_venue_item.html.erb"
-			],
-			[
-				"venin",
-				"app/views/venues/index.html.erb"
 			],
 			[
 				"accin",
@@ -1761,10 +1380,6 @@
 				"app/views/venues/show.html.erb"
 			],
 			[
-				"venue",
-				"app/models/venue.rb"
-			],
-			[
 				"brow",
 				"test/performance/browsing_test.rb"
 			],
@@ -1793,20 +1408,8 @@
 				"app/assets/stylesheets/application.css"
 			],
 			[
-				"appcon",
-				"app/controllers/application_controller.rb"
-			],
-			[
-				"helper",
-				"app/helpers/application_helper.rb"
-			],
-			[
 				"viewvenue",
 				"app/views/venues/index.html.erb"
-			],
-			[
-				"rou",
-				"config/routes.rb"
 			],
 			[
 				"fou",
@@ -1874,7 +1477,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 215.0,
+	"side_bar_width": 287.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

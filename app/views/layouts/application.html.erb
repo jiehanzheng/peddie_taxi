@@ -33,6 +33,17 @@
             <%= tab.venues    'Venues', venues_path %>
             <%= tab.rides     'Rides', rides_path %>
           <% end %>
+          <div class="pull-right">
+            <ul class="nav">
+              <li>
+                <% if signed_in? %>
+                  <%= link_to '<i class="icon-user"></i> '.html_safe + "Sign out #{current_user.first_name}", "/sessions", :method => :delete %>
+                <% else %>
+                  <%= link_to '<i class="icon-user"></i> '.html_safe + "Peddie OpenID Sign-in", "/auth/peddie" %>
+                <% end %>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>
@@ -44,8 +55,8 @@
         <% if flash[:notice] %>
           <p class="alert alert-info"><%= flash[:notice] %></p>
         <% end %>
-        <% if flash[:error] %>
-          <p class="alert alert-error"><%= flash[:error] %></p>
+        <% if flash[:alert] %>
+          <p class="alert alert-error"><%= flash[:alert] %></p>
         <% end %>
       </div>
     </div>
