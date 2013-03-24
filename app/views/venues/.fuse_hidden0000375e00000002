@@ -23,7 +23,7 @@
            class="text_field input-block-level"
            data-autocomplete-type="establishment"
            data-autocomplete-output-name="#venue_name"
-           data-autocomplete-output-formatted-address="#venue_address"
+           data-autocomplete-output-address="#venue_address"
            data-autocomplete-output-vicinity="#venue_vicinity"
            data-autocomplete-output-website="#venue_description"
            data-autocomplete-output-reference="#venue_reference" />
@@ -86,9 +86,9 @@
       <%= f.label :description, :class => 'control-label' %>
       <div class="controls">
         <%= f.text_area :description, { :class => 'text_area input-block-level',
-                                        :rows => 5,
-                                        :placeholder => "Optional" } %>
-        <span class="help-block">Describe 
+                                        :rows => 5 } %>
+        <span class="help-block"><span class="label">Optional</span> 
+          Description is not associated with your request.  Describe 
           this venue: why it is good, what the price range is, what their 
           opening hours are, etc.
         </span>
@@ -99,7 +99,7 @@
       <%= f.label :reference, :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :reference, { :class => 'text_field input-block-level',
-                                       :placeholder => "Optional" } %>
+                                  :placeholder => "Optional" } %>
       </div>
     </div>
 

@@ -68,18 +68,10 @@ bootstrapMap = () ->
   # venues#new
   # venues#edit
   draggableMarker jqMap, map
-
-  # venues#new
-  # venues#edit
-  hybridSwitchLink jqMap, map
   
   # venues#new
   # venues#edit
   removeParentUponClick jqMap, map
-
-  # venues#new
-  # venues#edit
-  placePinAtAddress jqMap, map
 
   # venues#new
   # venues#edit
@@ -111,6 +103,8 @@ draggableMarker = (jqMap, map) ->
     google.maps.event.addListener marker, 'position_changed', ->
       $(jqMap.data 'draggable-marker-sync-lat').val marker.getPosition().lat()
       $(jqMap.data 'draggable-marker-sync-lon').val marker.getPosition().lng()
+
+    # TODO: the other way around
 
     jqMap.data 'draggable-marker-handle', marker
 
@@ -146,12 +140,6 @@ locationListItemsSync = (jqMap, map) ->
         console.log "marker bounce: leave"
         $(this).data("marker").setAnimation null
     )
-
-
-hybridSwitchLink = (jqMap, map) ->
-  $("a.switch-to-hybrid-view").click ->
-    map.setMapTypeId(google.maps.MapTypeId.HYBRID)
-    $(this).parent().slideUp("slow")
 
 
 removeParentUponClick = (jqMap, map) ->
@@ -195,35 +183,27 @@ autocomplete = (jqMap, map) ->
     new google.maps.LatLng( <%= Settings.geo.boundaries.autocomplete.latlon2.latitude %>,
                             <%= Settings.geo.boundaries.autocomplete.latlon2.longitude %> ) )
 
-  $("[data-enable-autocomplete=true]").each -> 
+  $("#google_autocomplete").each -> 
     autocomplete = new google.maps.places.Autocomplete this, {
       bounds: autocompleteBounds
+      componentRestrictions: {country: 'us'}
       types: [ $(this).data 'autocomplete-type' ] }
 
-    if "draw" == $(this).data 'autocomplete-callback-behavior'
-      google.maps.event.addListener autocomplete, 'place_changed', ->
-        place = autocomplete.getPlace()
+    google.maps.event.addListener autocomplete, 'place_changed', =>
+      place = autocomplete.getPlace()
 
-        directionsService = new google.maps.DirectionsService()
-        directionsDisplay = new google.maps.DirectionsRenderer()
-        directionsDisplay.setMap map
+      console.log place
 
-        directionsService.route {
-          origin: jqMap.data "base-lat-long"
-          destination: place.geometry.location
-          travelMode: google.maps.TravelMode.DRIVING }, (response, status) ->
-          if status is google.maps.DirectionsStatus.OK 
-            directionsDisplay.setDirections response
-          else
-            errorAlert = """
-                         <div class="alert alert-error">
-                         <button type="button" 
-                                 class="close" 
-                                 data-dismiss="alert">&times;</button>
-                         <strong>Error:</strong> #{status}
-                         """        
-            $(this).parent().prepend( errorAlert )
+      # marker and viewport
+      jqMap.data('draggable-marker-handle').setPosition(place.geometry.location)
+      fitMarkers map, [jqMap.data("base-marker").getPosition(), place.geometry.location]
 
+      # basic info
+      $($(this).data 'autocomplete-output-name').val place.name
+      $($(this).data 'autocomplete-output-formatted-address').val place.formatted_address
+      $($(this).data 'autocomplete-output-vicinity').val place.vicinity
+      $($(this).data 'autocomplete-output-website').val place.website
+      $($(this).data 'autocomplete-output-reference').val place.reference
 
 requestDirection = (jqMap, map) ->
   if jqMap.data("enable-direction")
@@ -275,7 +255,7 @@ fitMarkers = (map, positions) ->
 # load Google libs if it's not loaded already
 if $(".map").length
   if (not window.google?) or (not google.maps?)
-    jQuery.getScript "//maps.googleapis.com/maps/api/js?v=3.11&libraries=places&key=<%= Settings.google.api.simple.key %>&sensor=false&callback=PeddieTaxi.bootstrapMap", ->
+    jQuery.getScript "//maps.googleapis.com/maps/api/js?v=3.12&libraries=places&key=<%= Settings.google.api.simple.key %>&sensor=false&callback=PeddieTaxi.bootstrapMap", ->
       console.log "Google Maps JavaScript API is starting to load."
   else
     bootstrapMap()

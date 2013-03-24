@@ -4,7 +4,7 @@
 
 <div class="hero-unit">
   <h1><%= @venue.name %></h1>
-  <p><%= @venue.street %>, <%= @venue.city %>, <%= @venue.state %></p>
+  <p><%= @venue.vicinity %></p>
   <p>
     <%= link_to "Propose a trip", { :controller => "proposals",
                                   :action => "new",
