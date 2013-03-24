@@ -1,6 +1,4 @@
-<h1>Editing proposal</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @proposal %> |
-<%= link_to 'Back', proposals_path %>
+<%# h1, span12 %>
+<div class="row">
+  <%= render :partial => 'form', :locals => { :h1 => "Edit proposal" } %>
+</div>

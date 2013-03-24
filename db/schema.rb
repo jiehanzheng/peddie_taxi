@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130315044722) do
+ActiveRecord::Schema.define(version: 20130315182248) do
 
   create_table "accommodations", force: true do |t|
     t.integer  "venue_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 20130315044722) do
     t.integer  "venue_id"
     t.text     "comments"
     t.datetime "leaving_at"
-    t.datetime "return_at"
+    t.datetime "returning_at"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

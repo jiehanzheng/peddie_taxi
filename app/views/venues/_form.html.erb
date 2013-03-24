@@ -23,6 +23,16 @@
   </div>
 
   <%= form_for @venue, :html => { :class => 'form-horizontal' } do |f| %>
+    <div id="error_explanation" class="alert alert-block alert-error">
+        <strong><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</strong>
+        <ul>
+        <% @venue.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <div class="control-group">
       <%= f.label :name, :class => 'control-label' %>
       <div class="controls">
@@ -30,6 +40,7 @@
                                   :placeholder => "e.g. Target" } %>
       </div>
     </div>
+    
     <div class="control-group">
       <%#= f.label :street, :class => 'control-label' %>
       <label class="control-label" for="venue_street">Address</label>
@@ -55,6 +66,7 @@
         </span>
       </div>
     </div>
+
     <div class="control-group">
       <%= f.label :latitude, :class => 'control-label' %>
       <div class="controls">
@@ -62,6 +74,7 @@
                                       :placeholder => "please drag the pin..." } %>
       </div>
     </div>
+
     <div class="control-group">
       <%= f.label :longitude, :class => 'control-label' %>
       <div class="controls">
@@ -74,6 +87,7 @@
         </span>
       </div>        
     </div>
+
     <div class="control-group">
       <%= f.label :description, :class => 'control-label' %>
       <div class="controls">

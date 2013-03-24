@@ -1,40 +1,78 @@
-<p id="notice"><%= notice %></p>
+<% content_for :scripts do %>
+  <%= javascript_include_tag "map" %>
+<% end %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @venue.name %>
-</p>
+<div class="hero-unit">
+  <h1><%= @venue.name %></h1>
+  <p><%= @venue.street %>, <%= @venue.city %>, <%= @venue.state %></p>
+  <p>
+    <%= link_to "Propose a trip", { :controller => "proposals",
+                                  :action => "new",
+                                  :venue_id => @venue.id },
+                                { :class => "btn btn-primary btn-large" } %>
+    <%= link_to "Edit", edit_venue_path, { :class => "btn btn-large" } %>
+    <%= link_to "Delete", {}, { :confirm => "Are you sure?", 
+                                :method => :delete, 
+                                :class => "btn btn-danger btn-large" } %>
+  </p>
+</div>
 
-<p>
-  <strong>Latitude:</strong>
-  <%= @venue.latitude %>
-</p>
+<div class="row">
+  <div class="span12">
+    <div class="page-header">
+      <h2>About this venue</h2>
+    </div>
+  </div>
+  <div class="span9">
+    <table class="table table-bordered table-hover map-data-source">
+      <tbody>
+        <tr>
+          <th scope="row">Description</th>
+          <td><%= simple_format( @venue.description ) %></td>
+        </tr>
+        <tr>
+          <th scope="row">Popularity</th>
+          <td>? people have requested to get here</td>
+        </tr>
+        <tr class="additional-data">
+          <th scope="row">Geographical data</th>
+          <td>
+            <div id="destination" class="venue-list_item"
+              data-latitude="<%= @venue.latitude %>"
+              data-longitude="<%= @venue.longitude %>"></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
 
-<p>
-  <strong>Longitude:</strong>
-  <%= @venue.longitude %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @venue.description %>
-</p>
-
-<p>
-  <strong>Street:</strong>
-  <%= @venue.street %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @venue.city %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @venue.state %>
-</p>
-
-
-<%= link_to 'Edit', edit_venue_path(@venue) %> |
-<%= link_to 'Back', venues_path %>
+<div class="row">
+  <div class="span12">
+    <div class="page-header">
+      <h2>Directions <small>see estimated travel time and turn-by-turn direction</small></h2>
+    </div>
+  </div>
+  <div class="span6">
+    <div id="alert_select_travel_mode" class="alert alert-info">
+      Select a travel mode to start planning the route.
+    </div>
+    <div id="travel_mode_selector" class="btn-group">
+      <button type="button" class="btn btn-primary" value="WALKING">Walking</button>
+      <button type="button" class="btn btn-primary" value="BICYCLING">Bicycling</button>
+      <button type="button" class="btn btn-primary" value="DRIVING">Driving</button>
+    </div>
+    <div id="directions_panel"></div>
+  </div>
+  <div class="span6">
+    <div class="map well"
+      data-base-latitude="<%= Settings.geo.locations.base.latitude %>"
+      data-base-longitude="<%= Settings.geo.locations.base.longitude %>"
+      data-enable-direction="true"
+      data-travel-mode-selector="#travel_mode_selector button"
+      data-hide-once-travel-mode-is-selected="#alert_select_travel_mode"
+      data-destination-selector=".map-data-source #destination"
+      data-enable-direction-display="true"
+      data-direction-display-target="#directions_panel"></div>
+  </div>
+</div>

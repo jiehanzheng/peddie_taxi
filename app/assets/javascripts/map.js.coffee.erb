@@ -123,6 +123,7 @@ draggableMarker = (jqMap, map) ->
 
     jqMap.data 'draggable-marker-handle', marker
 
+
 locationListItemsSync = (jqMap, map) ->
   geoDataSource = $(".map-data-source")
 
@@ -155,16 +156,19 @@ locationListItemsSync = (jqMap, map) ->
         $(this).data("marker").setAnimation null
     )
 
+
 hybridSwitchLink = (jqMap, map) ->
   $("a.switch-to-hybrid-view").click ->
     map.setMapTypeId(google.maps.MapTypeId.HYBRID)
     $(this).parent().slideUp("slow")
+
 
 removeParentUponClick = (jqMap, map) ->
   # if a user clicks on a link, it means that he is aware of the help-block,
   # then remove it to save space
   $(".remove-parent-upon-click").click ->
     $(this).parent().slideUp("slow")
+
 
 placePinAtAddress = (jqMap, map) ->
   $("a.btn.place-pin-at-address").click ->
@@ -191,6 +195,7 @@ placePinAtAddress = (jqMap, map) ->
                      """
         
         $(this).parent().prepend( errorAlert )
+
 
 autocomplete = (jqMap, map) ->
   autocompleteBounds = new google.maps.LatLngBounds(
@@ -227,6 +232,7 @@ autocomplete = (jqMap, map) ->
                          <strong>Error:</strong> #{status}
                          """        
             $(this).parent().prepend( errorAlert )
+
 
 requestDirection = (jqMap, map) ->
   if jqMap.data("enable-direction")
@@ -267,7 +273,6 @@ requestDirection = (jqMap, map) ->
             $(this).parent().prepend( errorAlert )
       else
         console.log "No travel mode was selected."
-
 
 
 fitMarkers = (map, positions) ->

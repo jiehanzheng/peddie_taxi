@@ -1,12 +1,13 @@
 <%# h1, span12 %>
 <% content_for :scripts do %>
-  <%= javascript_include_tag "venues_map" %>
+  <%= javascript_include_tag "map" %>
 <% end %>
 <div class="row">
   <div class="span8">
-    <div id="venues_map" class="well"
+    <div class="map well"
          data-base-latitude="<%= Settings.geo.locations.base.latitude %>"
-         data-base-longitude="<%= Settings.geo.locations.base.longitude %>"></div>
+         data-base-longitude="<%= Settings.geo.locations.base.longitude %>">
+    </div>
   </div>
   <div class="span4">
     <div class="page-header">

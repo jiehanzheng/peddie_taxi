@@ -1,37 +1,83 @@
-<%= form_for(@proposal) do |f| %>
-  <% if @proposal.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@proposal.errors.count, "error") %> prohibited this proposal from being saved:</h2>
+<%# h1, span12 %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag "proposals" %>
+<% end %>
+<div class="span7">
+  <div class="page-header">
+    <h1><%= h1 %></h1>
+    <p class="text-info">Fill in this form and get your friends to sign up for it!</p>
+  </div>
+  <%= form_for @proposal, :html => { :class => 'form-horizontal' } do |f| %>
+    <% if @proposal.errors.any? %>
+      <div id="error_explanation" class="alert alert-block alert-error">
+        <strong><%= pluralize(@proposal.errors.count, "error") %> prohibited this proposal from being saved:</strong>
+        <ul>
+        <% @proposal.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% @proposal.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="control-group">
+      <%= f.label :venue_id, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_field :venue_id, 
+                         { :class => 'text_field input-small' } %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :leaving_at, :class => 'control-label' %>
+      <div class="controls">
+        <div id="leaving_at_picker" class="input-append">
+          <%#= f.text_field :leaving_at, 
+                           { :class => 'text_field input-large',
+                             :data => { :format => 'yyyy-MM-dd hh:mm:ss' } } %>
+           <input class="text_field input-large" 
+                  data-format="yyyy-MM-dd hh:mm:ss" 
+                  id="proposal_leaving_at" name="proposal[leaving_at]" 
+                  type="text" 
+                  value="<%= @proposal.leaving_at.to_s(:db) %>" />
+           <span class="add-on">
+            <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+          </span>
+        </div>
+        <span class="help-inline">Click <i class="icon-calendar"></i> to select</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :leaving_at, :class => 'control-label' %>
+      <div class="controls">
+        <div id="returning_at_picker" class="input-append">
+          <%#= f.text_field :returning_at, 
+                           { :class => 'text_field input-large',
+                             :data => { :format => 'yyyy-MM-dd hh:mm:ss' } } %>
+           <input class="text_field input-large" 
+                  data-format="yyyy-MM-dd hh:mm:ss" 
+                  id="proposal_returning_at" name="proposal[returning_at]" 
+                  type="text" 
+                  value="<%= @proposal.returning_at.to_s(:db) %>" />
+           <span class="add-on">
+            <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
+          </span>
+        </div>
+        <span class="help-inline">Click <i class="icon-calendar"></i> to select</span>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :comments, :class => 'control-label' %>
+      <div class="controls">
+        <%= f.text_area :comments, { :class => 'text_area input-block-level' } %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to "Cancel",
+                  proposals_path, :class => 'btn' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :venue_id %><br />
-    <%= f.number_field :venue_id %>
-  </div>
-  <div class="field">
-    <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
-  </div>
-  <div class="field">
-    <%= f.label :leaving_at %><br />
-    <%= f.datetime_select :leaving_at %>
-  </div>
-  <div class="field">
-    <%= f.label :return_at %><br />
-    <%= f.datetime_select :return_at %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

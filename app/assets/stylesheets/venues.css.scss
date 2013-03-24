@@ -2,7 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body.venues {
+body.venues_new, body.venues_edit {
+  .map {
+    height: 650px;
+  }
+}
+
+body.venues_show {
+  .map {
+    height: 450px;
+  }
+
+  .additional-data {
+    display: none;
+  }
+}
+
+body.venues_index {
   .map {
     height: 650px;
   }

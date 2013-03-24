@@ -10,18 +10,4 @@
  *
  *= require_self
  *= require_tree .
- *= require bootstrap-datetimepicker
  */
-
-@import "bootstrap";
-
-body { padding-top: 60px; }
-
-@import "bootstrap-responsive";
-
-
-// Bootstrap--Google Maps workaround
-// http://stackoverflow.com/questions/9141249
-img {
-  max-width: none;
-}
