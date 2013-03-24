@@ -18,19 +18,20 @@
   </div>
   <div class="page-header">
     <p class="text-info">Type an address below and we will try to fill in as much as we can for you!</p>
-    <input type="text" class="text_field input-block-level" />
+    <input id="google_autocomplete" type="text" class="text_field input-block-level" />
     <p class="muted">Although Jiehan doesn&rsquo;t like Google, places information comes from Google Places API.</p>
   </div>
 
   <%= form_for @venue, :html => { :class => 'form-horizontal' } do |f| %>
-    <div id="error_explanation" class="alert alert-block alert-error">
-        <strong><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</strong>
-        <ul>
-        <% @venue.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-        </ul>
-      </div>
+    <% if @venue.errors.any? %>
+      <div id="error_explanation" class="alert alert-block alert-error">
+          <strong><%= pluralize(@venue.errors.count, "error") %> prohibited this venue from being saved:</strong>
+          <ul>
+          <% @venue.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
     <% end %>
 
     <div class="control-group">

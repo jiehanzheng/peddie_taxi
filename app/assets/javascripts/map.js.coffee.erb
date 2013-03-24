@@ -2,14 +2,9 @@
 
 window.PeddieTaxi ||= {}
 
-$ ->
-  # check if we actually have somewhere to put our map
-  if not $(".map").length
-    throw new Error("You loaded map.js but don't have a container on your page")
-
 
 bootstrapMap = () ->
-  console.log "Google Maps JavaScript API has finished loading.  Prepaing map..."
+  console.log "Google Maps JavaScript API has finished loading.  Preparing map..."
 
   jqMap = $(".map")
   PeddieTaxi.jqMap = jqMap
@@ -98,10 +93,6 @@ bootstrapMap = () ->
 # in order for Google to call us back when it's done loading
 PeddieTaxi.bootstrapMap = bootstrapMap
 
-# load Google libs
-jQuery.getScript "//maps.googleapis.com/maps/api/js?v=3.11&libraries=places&key=<%= Settings.google.api.simple.key %>&sensor=false&callback=PeddieTaxi.bootstrapMap", ->
-  console.log "Google Maps JavaScript API is starting to load itself."
-
 
 draggableMarker = (jqMap, map) ->
   if $('.map').data 'enable-draggable-marker'
@@ -141,7 +132,7 @@ locationListItemsSync = (jqMap, map) ->
       title: $(this).data("name")
       animation: google.maps.Animation.DROP }
 
-    # 
+    
     # marker bounce
     #
     # bind hover event to item, in order to display relevant information 
@@ -279,3 +270,12 @@ fitMarkers = (map, positions) ->
   bounds = new google.maps.LatLngBounds()
   bounds.extend position for position in positions
   map.fitBounds(bounds)
+
+
+# load Google libs if it's not loaded already
+if $(".map").length
+  if (not window.google?) or (not google.maps?)
+    jQuery.getScript "//maps.googleapis.com/maps/api/js?v=3.11&libraries=places&key=<%= Settings.google.api.simple.key %>&sensor=false&callback=PeddieTaxi.bootstrapMap", ->
+      console.log "Google Maps JavaScript API is starting to load."
+  else
+    bootstrapMap()

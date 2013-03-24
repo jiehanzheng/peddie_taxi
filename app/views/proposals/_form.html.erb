@@ -38,7 +38,7 @@
                   data-format="yyyy-MM-dd hh:mm:ss" 
                   id="proposal_leaving_at" name="proposal[leaving_at]" 
                   type="text" 
-                  value="<%= @proposal.leaving_at.to_s(:db) %>" />
+                  value="<%= @proposal.leaving_at.to_s(:db) rescue 1.week.from_now.to_s(:db) %>" />
            <span class="add-on">
             <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
           </span>
@@ -48,7 +48,7 @@
     </div>
 
     <div class="control-group">
-      <%= f.label :leaving_at, :class => 'control-label' %>
+      <%= f.label :returning_at, :class => 'control-label' %>
       <div class="controls">
         <div id="returning_at_picker" class="input-append">
           <%#= f.text_field :returning_at, 
@@ -58,7 +58,7 @@
                   data-format="yyyy-MM-dd hh:mm:ss" 
                   id="proposal_returning_at" name="proposal[returning_at]" 
                   type="text" 
-                  value="<%= @proposal.returning_at.to_s(:db) %>" />
+                  value="<%= @proposal.returning_at.to_s(:db) rescue 1.week.from_now.to_s(:db) %>" />
            <span class="add-on">
             <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
           </span>
