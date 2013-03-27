@@ -1,7 +1,6 @@
 PeddieTaxi::Application.routes.draw do
   resources :accommodations
   resources :proposals
-  resources :rides
   resources :venues
   resources :signups
 

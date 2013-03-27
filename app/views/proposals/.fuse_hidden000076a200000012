@@ -9,8 +9,8 @@
                            { :class => "btn btn-primary btn-large" } %>
     <%= link_to "View venue", @proposal.venue,
                               { :class => "btn btn-large" } %>
-    <%= link_to "Edit", edit_proposal_path, { :class => "btn btn-large" } %>
-    <%= link_to "Delete", {}, { :confirm => "Are you sure?", 
+    <%#= link_to "Edit", edit_venue_path, { :class => "btn btn-large" } %>
+    <%#= link_to "Delete", {}, { :confirm => "Are you sure?", 
                                 :method => :delete, 
                                 :class => "btn btn-danger btn-large" } %>
   </p>
@@ -30,16 +30,16 @@
     <table class="table table-bordered table-hover map-data-source">
       <tbody>
         <tr>
-          <th scope="row">Approx. departure</th>
+          <th scope="row">Leaving at</th>
           <td>
             <%= @proposal.leaving_at.to_s(:peddie_dumb) %>
             <span class="muted">
-              (<%= @proposal.leaving_at.strftime("%A") %>, <%= distance_of_time_in_words(Time.now, @proposal.leaving_at) %> <%= from_now_or_ago(@proposal.leaving_at) %>)
+              (<%= the_time.strftime("%A") %>, <%= distance_of_time_in_words(Time.now, @proposal.leaving_at) %> <%= from_now_or_ago(@proposal.leaving_at) %>)
             </span>
           </td>
         </tr>
         <tr>
-          <th scope="row">Approx. return</th>
+          <th scope="row">Returning at</th>
           <td>
             <%= @proposal.returning_at.to_s(:peddie_dumb) %>
           </td>

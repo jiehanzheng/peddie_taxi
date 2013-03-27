@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
     begin
       auth = request.env["omniauth.auth"]
 
+      # raise auth.to_yaml
+
       user = User.from_omniauth(auth)
       session[:user_id] = user.id
       redirect_to (request.env['omniauth.origin'] || root_path), :notice => "Welcome!  You've successfully signed in via your #{auth["provider"].titleize} account."

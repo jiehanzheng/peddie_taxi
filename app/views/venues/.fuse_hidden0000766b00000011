@@ -17,9 +17,6 @@
   <div class="page-header">
     <h2>Autocomplete</h2>
     <p class="text-info">Type an address below and we will try to fill in as much as we can for you!</p>
-    <% if params[:action] == "edit" %>
-      <p class="text-warning"><span class="label label-important">Warning!</span> You are editing a venue.  If you use autocomplete here, <strong>everything in the form will be overwritten</strong>, including the &ldquo;Description&rdquo;.</p>
-    <% end %>
     <input id="google_autocomplete" 
            type="text" 
            class="text_field input-block-level"

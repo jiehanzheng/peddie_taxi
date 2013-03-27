@@ -6,5 +6,4 @@ class Venue < ActiveRecord::Base
   def already_proposed_this_weekend?
     # TODO
   end
-  
 end

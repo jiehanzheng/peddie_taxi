@@ -6,12 +6,12 @@ geo:
       longitude: -74.522
   boundaries:
     autocomplete:
-      latlon1:
-        latitude: 41.1
-        longitude: -75.9
-      latlon2:
-        latitude: 39
-        longitude: -73
+      sw:
+        latitude: 39.72
+        longitude: -75.08
+      ne:
+        latitude: 40.93
+        longitude: -73.84
 
 google:
   api:

@@ -9,8 +9,8 @@
                            { :class => "btn btn-primary btn-large" } %>
     <%= link_to "View venue", @proposal.venue,
                               { :class => "btn btn-large" } %>
-    <%= link_to "Edit", edit_proposal_path, { :class => "btn btn-large" } %>
-    <%= link_to "Delete", {}, { :confirm => "Are you sure?", 
+    <%#= link_to "Edit", edit_venue_path, { :class => "btn btn-large" } %>
+    <%#= link_to "Delete", {}, { :confirm => "Are you sure?", 
                                 :method => :delete, 
                                 :class => "btn btn-danger btn-large" } %>
   </p>
@@ -30,7 +30,7 @@
     <table class="table table-bordered table-hover map-data-source">
       <tbody>
         <tr>
-          <th scope="row">Approx. departure</th>
+          <th scope="row">Leaving at</th>
           <td>
             <%= @proposal.leaving_at.to_s(:peddie_dumb) %>
             <span class="muted">
@@ -39,10 +39,14 @@
           </td>
         </tr>
         <tr>
-          <th scope="row">Approx. return</th>
+          <th scope="row">Returning at</th>
           <td>
             <%= @proposal.returning_at.to_s(:peddie_dumb) %>
           </td>
+        </tr>
+        <tr>
+          <th scope="row">Accommodated by</th>
+          <td>Ride #? (Ms. Schwizer)</td>
         </tr>
         <tr>
           <th scope="row">Proposed by</th>

@@ -21,7 +21,6 @@ class User < ActiveRecord::Base
     user
   end
 
-
   def self.create_from_omniauth(auth)
     create! do |user|
       user.provider = auth["provider"]
@@ -32,26 +31,13 @@ class User < ActiveRecord::Base
   end
 
 
-  def name_and_graduation_year
-    begin
-      if graduation_year.blank?
-        full_name
-      else
-        full_name + " '" + graduation_year
-      end
-    rescue
-      "Real name is unknown"
-    end
-  end
-
-
   private
 
   def self.update_from_omniauth(auth, user)
     if 'peddie' == auth["provider"]
       user.first_name = auth["info"]["first_name"]
       user.last_name = auth["info"]["last_name"]
-      user.full_name = auth["info"]["name"]
+      user.full_name = auth["info"]["full_name"]
 
       unless auth["info"]["email"] =~ /^(?:[a-z\-]+)(?:-(\d{2}))?@peddie\.org$/
         raise NonePeddieLoginError

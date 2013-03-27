@@ -1,35 +1,22 @@
-<h1>Listing proposals</h1>
+<div class="row">
+  <div class="span9">
+    <div class="page-header">
+      <h2>This week</h2>
+    </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Venue</th>
-      <th>Comments</th>
-      <th>Leaving at</th>
-      <th>Returning at</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @proposals.each do |proposal| %>
-    <tr>
-      <td><%= proposal.user_id %></td>
-      <td><%= proposal.venue_id %></td>
-      <td><%= proposal.comments %></td>
-      <td><%= proposal.leaving_at %></td>
-      <td><%= proposal.returning_at %></td>
-      <td><%= link_to 'Show', proposal %></td>
-      <td><%= link_to 'Edit', edit_proposal_path(proposal) %></td>
-      <td><%= link_to 'Destroy', proposal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+      <div class="media span4">
+        <a class="pull-left" href='<%= url_for proposal %>'>
+          <%= static_map_tag proposal.venue.latitude, proposal.venue.longitude,
+                             :height => 130, :width => 130,
+                             :class => "media-object" %>
+        </a>
+        <div class="media-body">
+          <h3><%= link_to proposal.venue.name, proposal %></h3>
+          this <%= proposal.leaving_at.strftime("%A") %>
+          <%= simple_format(proposal.comments) %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br />
-
-<%= link_to 'New Proposal', new_proposal_path %>
+  </div>
+</div>
