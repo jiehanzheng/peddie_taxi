@@ -7,10 +7,14 @@
                              :action => "new",
                              :proposal_id => @proposal.id },
                            { :class => "btn btn-primary btn-large" } %>
+    <%= link_to "Accommodate", { :controller => "accommodations",
+                             :action => "new",
+                             :proposal_id => @proposal.id },
+                           { :class => "btn btn-primary btn-large" } %>
     <%= link_to "View venue", @proposal.venue,
                               { :class => "btn btn-large" } %>
     <%= link_to "Edit", edit_proposal_path, { :class => "btn btn-large" } %>
-    <%= link_to "Delete", {}, { :confirm => "Are you sure?", 
+    <%= link_to "Delete", {}, { :data => { confirm: 'Are you sure?' },
                                 :method => :delete, 
                                 :class => "btn btn-danger btn-large" } %>
   </p>
@@ -19,7 +23,7 @@
 <div class="row">
   <div class="span3">
     <div class="page-header">
-      <h2>Roaster</h2>
+      <h2>Roster</h2>
     </div>
 
   </div>
@@ -30,23 +34,14 @@
     <table class="table table-bordered table-hover map-data-source">
       <tbody>
         <tr>
-          <th scope="row">Approx. departure</th>
+          <th scope="row">Week</th>
           <td>
-            <%= @proposal.leaving_at.to_s(:peddie_dumb) %>
-            <span class="muted">
-              (<%= @proposal.leaving_at.strftime("%A") %>, <%= distance_of_time_in_words(Time.now, @proposal.leaving_at) %> <%= from_now_or_ago(@proposal.leaving_at) %>)
-            </span>
-          </td>
-        </tr>
-        <tr>
-          <th scope="row">Approx. return</th>
-          <td>
-            <%= @proposal.returning_at.to_s(:peddie_dumb) %>
+            <%= @proposal.year %>, <%= @proposal.relative_week %>
           </td>
         </tr>
         <tr>
           <th scope="row">Proposed by</th>
-          <td><%= @proposal.user.name_and_graduation_year %></td>
+          <td><%= @proposal.try(:user).try(:name_and_graduation_year) %></td>
         </tr>
       </tbody>
     </table>

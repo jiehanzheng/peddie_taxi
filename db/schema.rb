@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130327225830) do
+ActiveRecord::Schema.define(version: 20130402234835) do
 
   create_table "accommodations", force: true do |t|
     t.integer  "venue_id"
@@ -29,11 +29,14 @@ ActiveRecord::Schema.define(version: 20130327225830) do
     t.integer  "user_id"
     t.integer  "venue_id"
     t.text     "comments"
-    t.datetime "leaving_at"
-    t.datetime "returning_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "year"
+    t.integer  "week"
   end
+
+  add_index "proposals", ["week"], name: "index_proposals_on_week"
+  add_index "proposals", ["year"], name: "index_proposals_on_year"
 
   create_table "signups", force: true do |t|
     t.integer  "user_id"

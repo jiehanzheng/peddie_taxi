@@ -495,7 +495,7 @@
 			"file": "app/views/proposals/show.html.erb",
 			"settings":
 			{
-				"buffer_size": 1819,
+				"buffer_size": 1818,
 				"line_ending": "Unix"
 			}
 		},
@@ -1004,7 +1004,7 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1071,15 +1071,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1819,
+						"buffer_size": 1818,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								990,
-								990
+								747,
+								747
 							]
 						],
 						"settings":
@@ -1136,8 +1136,8 @@
 						"selection":
 						[
 							[
-								853,
-								853
+								276,
+								276
 							]
 						],
 						"settings":
@@ -1316,14 +1316,14 @@
 						"selection":
 						[
 							[
-								1098,
-								1098
+								1337,
+								1337
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Ruby/Ruby.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -1529,6 +1529,10 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"proposhow",
+				"app/views/proposals/show.html.erb"
+			],
 			[
 				"apphel",
 				"app/helpers/application_helper.rb"
@@ -2036,10 +2040,6 @@
 			[
 				"sty",
 				"app/assets/stylesheets/application.css"
-			],
-			[
-				"viewvenue",
-				"app/views/venues/index.html.erb"
 			]
 		],
 		"width": 0.0

@@ -5,7 +5,8 @@ class ProposalsController < ApplicationController
   # GET /proposals
   # GET /proposals.json
   def index
-    @proposals = Proposal.all
+    @proposals_this_week = Proposal.this_week
+    @proposals_next_week = Proposal.next_week
   end
 
   # GET /proposals/1
@@ -78,6 +79,6 @@ class ProposalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def proposal_params
-      params.require(:proposal).permit(:venue_id, :comments, :leaving_at, :returning_at)
+      params.require(:proposal).permit(:venue_id, :relative_week, :comments)
     end
 end

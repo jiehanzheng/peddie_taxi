@@ -23,7 +23,7 @@
     <div class="page-header">
       <h2>Next week</h2>
     </div>
-    <% @proposals_next_week.each do |proposal| %>
+    <% @proposals.each do |proposal| %>
       <div class="media span3">
         <a class="pull-left" href='<%= url_for proposal %>'>
           <%= static_map_tag proposal.venue.latitude, proposal.venue.longitude,

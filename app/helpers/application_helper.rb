@@ -53,5 +53,19 @@ module ApplicationHelper
   def from_now_or_ago(the_time)
     return "from now" if the_time.future? else "ago"
   end
+
+
+  def checked_eq_checked(value, checked_value)
+    if value == checked_value
+      'checked="checked"'.html_safe
+    end
+  end
+
+
+  def active_if_val_eq(value, checked_value)
+    if value == checked_value
+      'active'
+    end
+  end
   
 end

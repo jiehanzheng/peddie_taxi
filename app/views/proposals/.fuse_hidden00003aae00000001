@@ -5,9 +5,7 @@
 <div class="span9">
   <div class="page-header">
     <h1><%= h1 %></h1>
-    <% if params[:action] == "new" %>
-      <p class="text-info">Fill in this form and get your friends to sign up for it!</p>
-    <% end %>
+    <p class="text-info">Fill in this form and get your friends to sign up for it!</p>
   </div>
   <%= form_for @proposal, :html => { :class => 'form-horizontal' } do |f| %>
     <% if @proposal.errors.any? %>
@@ -54,20 +52,22 @@
       <div class="controls">
         <div class="relative_week btn-group" data-toggle="buttons-radio">
           <button type="button"
-                  class="btn <%= active_if_val_eq(@proposal.relative_week, :this_week) %>"
-                  value="this_week">
+                  class="btn"
+                  value="this_week"
+                  <%= checked_eq_checked(@proposal.relative_week, :this_week) %>>
             This week
           </button>
           <button type="button" 
-                  class="btn <%= active_if_val_eq(@proposal.relative_week, :next_week) %>" 
-                  value="next_week">
+                  class="btn" 
+                  value="next_week"
+                  <%= checked_eq_checked(@proposal.relative_week, :next_week) %>>
             Next week
           </button>
+          <%= f.hidden_field :relative_week %>
         </div>
-        <%= f.hidden_field :relative_week %>
         <span class="help-block">The week starts with Sunday.</span>
         <span class="help-block">
-          You will be able to refine the timespan when you sign up.
+          You will be able to refine the timespan when signing up.
         </span>
       </div>
     </div>
