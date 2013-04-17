@@ -45,6 +45,11 @@ class User < ActiveRecord::Base
   end
 
 
+  def official?
+    true
+  end
+
+
   private
 
   def self.update_from_omniauth(auth, user)

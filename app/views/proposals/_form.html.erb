@@ -52,7 +52,7 @@
     <div class="control-group">
       <%= f.label :week, :class => 'control-label' %>
       <div class="controls">
-        <div class="relative_week btn-group" data-toggle="buttons-radio">
+        <div id="relative_week" class="btn-group" data-toggle="buttons-radio">
           <button type="button"
                   class="btn <%= active_if_val_eq(@proposal.relative_week, :this_week) %>"
                   value="this_week">
@@ -68,6 +68,9 @@
         <span class="help-block">The week starts with Sunday.</span>
         <span class="help-block">
           You will be able to refine the timespan when you sign up.
+        </span>
+        <span class="help-block">
+          Faculty members specify exact departure time when they offer accommodations.
         </span>
       </div>
     </div>

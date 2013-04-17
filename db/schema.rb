@@ -11,18 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130402234835) do
+ActiveRecord::Schema.define(version: 20130406013228) do
 
   create_table "accommodations", force: true do |t|
-    t.integer  "venue_id"
-    t.integer  "rides_id"
+    t.integer  "proposal_id"
     t.text     "comments"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
-    t.datetime "leaving_at"
-    t.datetime "returning_at"
+    t.time     "leaving_at"
+    t.time     "returning_at"
     t.integer  "capacity"
+    t.integer  "day_of_week"
   end
 
   create_table "proposals", force: true do |t|

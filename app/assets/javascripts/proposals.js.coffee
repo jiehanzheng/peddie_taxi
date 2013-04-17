@@ -4,5 +4,5 @@
 
 $ ->
 
-  $('div.relative_week.btn-group > button').click ->
+  $('div#relative_week.btn-group > button').click ->
     $("#proposal_relative_week").attr 'value', $(this).val()

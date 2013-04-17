@@ -2,6 +2,7 @@ class Proposal < ActiveRecord::Base
   belongs_to :venue
   belongs_to :user
   has_many :signups
+  has_many :accommodations
 
 
   def self.this_week_year
@@ -9,7 +10,7 @@ class Proposal < ActiveRecord::Base
   end
 
   def self.this_week_number
-    DateTime.now.strftime("%U").to_i
+    DateTime.now.strftime("%V").to_i
   end
 
   def self.next_week_year
@@ -17,7 +18,7 @@ class Proposal < ActiveRecord::Base
   end
 
   def self.next_week_number
-    1.week.from_now.strftime("%U").to_i
+    1.week.from_now.strftime("%V").to_i
   end
 
   def self.this_week

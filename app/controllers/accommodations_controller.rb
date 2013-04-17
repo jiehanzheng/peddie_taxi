@@ -4,7 +4,9 @@ class AccommodationsController < ApplicationController
   # GET /accommodations
   # GET /accommodations.json
   def index
-    @accommodations = Accommodation.all
+    redirect_to :controller => :proposals, 
+                :action => :show, 
+                :id => params[:proposal_id]
   end
 
   # GET /accommodations/1
@@ -15,10 +17,17 @@ class AccommodationsController < ApplicationController
   # GET /accommodations/new
   def new
     @accommodation = Accommodation.new
-  end
+
+    begin
+      @proposal = Proposal.find(params[:proposal_id])
+    rescue ActiveRecord::RecordNotFound
+      redirect_to proposals_path, alert: 'You must select a valid proposal first.'
+    end
+  end  
 
   # GET /accommodations/1/edit
   def edit
+    @proposal = @accommodation.proposal
   end
 
   # POST /accommodations
@@ -28,7 +37,7 @@ class AccommodationsController < ApplicationController
 
     respond_to do |format|
       if @accommodation.save
-        format.html { redirect_to @accommodation, notice: 'Accommodation was successfully created.' }
+        format.html { redirect_to @accommodation.proposal, notice: 'Accommodation was successfully created.' }
         format.json { render action: 'show', status: :created, location: @accommodation }
       else
         format.html { render action: 'new' }
@@ -42,7 +51,7 @@ class AccommodationsController < ApplicationController
   def update
     respond_to do |format|
       if @accommodation.update(accommodation_params)
-        format.html { redirect_to @accommodation, notice: 'Accommodation was successfully updated.' }
+        format.html { redirect_to @accommodation.proposal, notice: 'Accommodation was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,6 +78,10 @@ class AccommodationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def accommodation_params
-      params.require(:accommodation).permit(:venue_id, :rides_id, :comments)
+      params.require(:accommodation).permit(:proposal_id, 
+                                            :day_of_week, 
+                                            :leaving_at, 
+                                            :returning_at, 
+                                            :comments)
     end
 end

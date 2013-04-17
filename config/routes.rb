@@ -1,8 +1,10 @@
 PeddieTaxi::Application.routes.draw do
-  resources :accommodations
-  resources :proposals
+  resources :proposals do
+    resources :accommodations do
+      resources :signups
+    end
+  end
   resources :venues
-  resources :signups
 
   post '/auth/:provider/callback' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'

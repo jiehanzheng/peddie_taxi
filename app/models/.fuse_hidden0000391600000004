@@ -1,0 +1,12 @@
+class Accommodation < ActiveRecord::Base
+
+  def day_of_week
+    0
+  end
+
+
+  def day_of_week=(zero_to_six)
+    raise zero_to_six.to_yaml
+  end
+
+end

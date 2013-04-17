@@ -1,29 +1,86 @@
-<%= form_for(@accommodation) do |f| %>
-  <% if @accommodation.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@accommodation.errors.count, "error") %> prohibited this accommodation from being saved:</h2>
+<%# h1, span12 %>
+<% content_for :scripts do %>
+  <%= javascript_include_tag "accommodations" %>
+<% end %>
+<div class="span9">
+  <div class="page-header">
+    <h1><%= h1 %></h1>
+  </div>
+  <%= form_for [@proposal, @accommodation], :html => { :class => 'form-horizontal' } do |f| %>
+    <% if @accommodation.errors.any? %>
+      <div id="error_explanation" class="alert alert-block alert-error">
+        <strong><%= pluralize(@accommodation.errors.count, "error") %> prohibited this accommodation from being saved:</strong>
+        <ul>
+        <% @accommodation.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% @accommodation.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+    <div class="control-group">
+      <%= f.label :proposal_id, :class => 'control-label' %>
+        <div class="controls">
+          <div class="well">
+            <div class="media">
+              <div class="pull-left">
+                <%= static_map_tag @proposal.venue.latitude, @proposal.venue.longitude,
+                                   :name => @proposal.venue.name %>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><%= @proposal.venue.name %></h4>
+                <%= @proposal.venue.vicinity %><br />
+                <%= @proposal.relative_week %>
+              </div>
+            </div>
+          </div>
+          <%= f.hidden_field :proposal_id, 
+                             { :value => @proposal.id } %>
+        </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label">Date</label>
+      <div class="controls">
+        <div id="day_of_week" class="btn-group" data-toggle="buttons-radio">
+          <%= day_of_week_buttons(@proposal.year, @proposal.week) %>
+        </div>
+        <span class="help-block">
+          <span id="natural_times">The <%= @proposal.week.ordinalize %> week of <%= @proposal.year %></span>
+        </span>
+        <%= f.hidden_field :day_of_week %>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :leaving_at, :class => 'control-label' %>
+      <div class="controls">
+        <div class="bootstrap-timepicker">
+          <%= f.text_field :leaving_at, { :class => 'input-small' } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :returning_at, :class => 'control-label' %>
+      <div class="controls">
+        <div class="bootstrap-timepicker">
+          <%= f.text_field :returning_at, { :class => 'input-small' } %>
+        </div>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :comments, :class => 'control-label' %>
+      <div class="controls">
+          <%= f.text_area :comments, { :class => 'input-block-level' } %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to "Cancel",
+                  proposal_accommodations_path, :class => 'btn' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :venue_id %><br />
-    <%= f.number_field :venue_id %>
-  </div>
-  <div class="field">
-    <%= f.label :rides_id %><br />
-    <%= f.number_field :rides_id %>
-  </div>
-  <div class="field">
-    <%= f.label :comments %><br />
-    <%= f.text_area :comments %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

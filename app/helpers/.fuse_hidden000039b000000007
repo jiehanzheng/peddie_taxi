@@ -50,6 +50,18 @@ module ApplicationHelper
   end
 
 
+  def from_now_or_ago(the_time)
+    return "from now" if the_time.future? else "ago"
+  end
+
+
+  def checked_eq_checked(value, checked_value)
+    if value == checked_value
+      'checked="checked"'.html_safe
+    end
+  end
+
+
   def active_if_val_eq(value, checked_value)
     if value == checked_value
       'active'
@@ -57,23 +69,10 @@ module ApplicationHelper
   end
 
 
-  def day_of_week_buttons(year=nil, week=nil)
+  def day_of_week_buttons
     (0..6).collect do |i|
-      css_class = "btn"
-      css_class << " btn-info" if (5..6).include?(i)
-      "<button type=\"button\" class=\"#{css_class}\" value=\"#{i}\" data-stupid-people-format=\"" + 
-      Date.commercial(year,week,i+1).strftime("%B %e, %Y") + 
-      '">' +
-      Date.commercial(year,week,i+1).strftime("%a") +
-      '</button>'
-    end.join.html_safe
-  end
 
-
-  def official_badge(user)
-    if user.official?
-      '<span class="label label-info">SNA</span>'.html_safe
-    end
+    end.join '\b'
   end
   
 end

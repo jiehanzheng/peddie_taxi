@@ -21,15 +21,9 @@
     <div class="page-header">
       <h2>Roster</h2>
     </div>
-    <%= render @proposal.accommodations %>
+
   </div>
-  <div class="span3">
-    <div class="page-header">
-      <h2>Wait list</h2>
-    </div>
-    <%= render @proposal.accommodations %>
-  </div>
-  <div class="span6">
+  <div class="span9">
     <div class="page-header">
       <h2>Trip information</h2>
     </div>
