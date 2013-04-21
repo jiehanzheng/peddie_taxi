@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130406013228) do
+ActiveRecord::Schema.define(version: 20130419044613) do
 
   create_table "accommodations", force: true do |t|
     t.integer  "proposal_id"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20130406013228) do
     t.time     "returning_at"
     t.integer  "capacity"
     t.integer  "day_of_week"
+    t.boolean  "sna",          default: false
   end
 
   create_table "proposals", force: true do |t|
@@ -43,6 +44,7 @@ ActiveRecord::Schema.define(version: 20130406013228) do
     t.integer  "proposal_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "accommodation_id"
   end
 
   create_table "users", force: true do |t|

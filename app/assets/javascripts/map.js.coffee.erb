@@ -111,7 +111,7 @@ draggableMarker = (jqMap, map) ->
       $(jqMap.data 'draggable-marker-sync-lat').val marker.getPosition().lat()
       $(jqMap.data 'draggable-marker-sync-lon').val marker.getPosition().lng()
 
-    # TODO: the other way around
+    # TODO: sync the other way around--market to link
 
     # following line causes Uncaught RangeError: Maximum call stack size exceeded.  Why?
     # fitMarkers map, [jqMap.data("base-marker").getPosition(), markerLagLng]
@@ -144,6 +144,7 @@ locationListItemsSync = (jqMap, map) ->
       ->
         console.log "marker bounce: hover"
         $(this).data("marker").setAnimation google.maps.Animation.BOUNCE
+        fitMarkers map, [jqMap.data("base-marker").getPosition(), $(this).data("marker").getPosition()]
 
       ->
         console.log "marker bounce: leave"

@@ -1,10 +1,12 @@
 PeddieTaxi::Application.routes.draw do
-  resources :proposals do
-    resources :accommodations do
+  resources :venues do
+    resources :proposals do
+      resources :accommodations do
+        resources :signups
+      end
       resources :signups
     end
   end
-  resources :venues
 
   post '/auth/:provider/callback' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
@@ -13,7 +15,7 @@ PeddieTaxi::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root to: 'proposals#index'
+  root to: 'venues#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

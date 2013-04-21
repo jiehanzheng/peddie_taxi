@@ -29,7 +29,7 @@
         <%= link_to "Peddie Taxi", root_path, :class => "brand" %>
         <div class="nav-collapse collapse">
           <%= tabs_tag(:builder => ApplicationHelper::BootstrapNavTabBuilder) do |tab| %>
-            <%= tab.proposals 'Proposals', proposals_path %>
+            <%= tab.proposals 'Proposals', '' %>
             <%= tab.venues    'Venues', venues_path %>
           <% end %>
           <div class="pull-right">

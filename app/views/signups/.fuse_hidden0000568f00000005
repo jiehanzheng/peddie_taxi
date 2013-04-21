@@ -1,0 +1,4 @@
+<%# h1, span12 %>
+<div class="row">
+  <%= render :partial => 'form', :locals => { :h1 => "Sign up" } %>
+</div>

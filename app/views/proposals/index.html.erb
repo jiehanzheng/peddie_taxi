@@ -5,18 +5,18 @@
     </div>
     <% @proposals_this_week.each do |proposal| %>
       <div class="media span4">
-        <a class="pull-left" href='<%= url_for proposal %>'>
+        <a class="pull-left" href='<%= url_for :controller => :proposals, :action => :show, :venue_id => proposal.venue_id, :id => proposal.id %>'>
           <%= static_map_tag proposal.venue.latitude, proposal.venue.longitude,
                              :height => 130, :width => 130,
                              :class => "media-object" %>
         </a>
         <div class="media-body">
-          <h3><%= link_to proposal.venue.name, proposal %></h3>
+          <h3><%= link_to proposal.venue.name, {:controller => :proposals, :action => :show, :venue_id => proposal.venue_id, :id => proposal.id} %></h3>
           <%= proposal.relative_week %>
           <%= simple_format(proposal.comments) %>
         </div>
       </div>
-    <% end %>  
+    <% end %>
   </div>
 
   <div class="span9 next_week">

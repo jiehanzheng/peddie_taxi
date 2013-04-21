@@ -1,0 +1,14 @@
+<%
+case @accommodation.blank?
+when true
+  h1 = "Sign up for wait list"
+  record = [@proposal.venue, @proposal, @signup]
+when false
+  h1 = "Sign up for accommodation"
+  record = [@proposal.venue, @proposal, @accommodation, @signup]
+end
+%>
+<div class="row">
+  <%= render :partial => 'form', :locals => { :h1 => h1,
+                                              :record => record } %>
+</div>

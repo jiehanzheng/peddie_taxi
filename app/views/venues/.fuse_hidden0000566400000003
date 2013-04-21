@@ -23,7 +23,7 @@
       <h2>Recent proposals</h2>
     </div>
     <% unless @proposal_this_week.blank? and @proposal_next_week.blank? %>
-      <div class="span2">
+      <div class="span3">
         <% unless @proposal_this_week.blank? %>
           <%= link_to "This week", [@venue, @proposal_this_week],
                                    {:class => "btn btn-large btn-block btn-info"} %>

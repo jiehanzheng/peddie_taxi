@@ -5,13 +5,17 @@ class ProposalsController < ApplicationController
   # GET /proposals
   # GET /proposals.json
   def index
-    @proposals_this_week = Proposal.this_week
-    @proposals_next_week = Proposal.next_week
+    # @proposals_this_week = Proposal.this_week
+    # @proposals_next_week = Proposal.next_week
+    redirect_to :controller => :venues, 
+                :action => :show, 
+                :id => params[:venue_id]
   end
 
   # GET /proposals/1
   # GET /proposals/1.json
   def show
+    @wait_list = @proposal.signups.select { |s| s.accommodation_id == nil }
   end
 
   # GET /proposals/new
@@ -38,11 +42,9 @@ class ProposalsController < ApplicationController
 
     respond_to do |format|
       if @proposal.save
-        format.html { redirect_to @proposal, notice: 'Proposal was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @proposal }
+        format.html { redirect_to [@proposal.venue, @proposal], notice: 'Proposal was successfully created.' }
       else
         format.html { render action: 'new' }
-        format.json { render json: @proposal.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -52,11 +54,9 @@ class ProposalsController < ApplicationController
   def update
     respond_to do |format|
       if @proposal.update(proposal_params)
-        format.html { redirect_to @proposal, notice: 'Proposal was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to [@proposal.venue, @proposal], notice: 'Proposal was successfully updated.' }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @proposal.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -67,7 +67,6 @@ class ProposalsController < ApplicationController
     @proposal.destroy
     respond_to do |format|
       format.html { redirect_to proposals_url }
-      format.json { head :no_content }
     end
   end
 

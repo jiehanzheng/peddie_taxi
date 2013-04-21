@@ -80,7 +80,7 @@
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to "Cancel",
-                  venue_proposal_accommodations_path, :class => 'btn' %>
+                  proposal_accommodations_path, :class => 'btn' %>
     </div>
   <% end %>
 </div>

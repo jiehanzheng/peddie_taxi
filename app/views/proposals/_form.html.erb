@@ -1,4 +1,3 @@
-<%# h1, span12 %>
 <% content_for :scripts do %>
   <%= javascript_include_tag "proposals" %>
 <% end %>
@@ -6,10 +5,11 @@
   <div class="page-header">
     <h1><%= h1 %></h1>
     <% if params[:action] == "new" %>
-      <p class="text-info">Fill in this form and get your friends to sign up for it!</p>
+      <p class="text-info">Fill in this form and get your friends to sign up for it.</p>
+      <p class="text-warning">Look for existing proposals before creating a new one, or you might get a validation error when you submit!</p>
     <% end %>
   </div>
-  <%= form_for @proposal, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= form_for [@venue, @proposal], :html => { :class => 'form-horizontal' } do |f| %>
     <% if @proposal.errors.any? %>
       <div id="error_explanation" class="alert alert-block alert-error">
         <strong><%= pluralize(@proposal.errors.count, "error") %> prohibited this proposal from being saved:</strong>
@@ -85,7 +85,7 @@
     <div class="form-actions">
       <%= f.submit nil, :class => 'btn btn-primary' %>
       <%= link_to "Cancel",
-                  proposals_path, :class => 'btn' %>
+                  venue_proposals_path, :class => 'btn' %>
     </div>
   <% end %>
 </div>

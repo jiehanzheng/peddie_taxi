@@ -11,6 +11,8 @@ class VenuesController < ApplicationController
   # GET /venues/1
   # GET /venues/1.json
   def show
+    @proposal_this_week = @venue.proposals.this_week.first
+    @proposal_next_week = @venue.proposals.next_week.first
   end
 
   # GET /venues/new

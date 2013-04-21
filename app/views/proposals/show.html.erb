@@ -1,7 +1,7 @@
 <div class="hero-unit">
   <p><%= proposal_status_badge(@proposal) %></p>
   <h1>Trip to <%= @proposal.venue.name %></h1>
-  <p><%= @proposal.venue.vicinity %></p>
+  <p><%= @proposal.relative_week %></p>
   <p>
     <%= link_to "Accommodate", { :controller => "accommodations",
                                  :action => "new",
@@ -9,7 +9,7 @@
                            { :class => "btn btn-primary btn-large" } %>
     <%= link_to "View venue", @proposal.venue,
                               { :class => "btn btn-large" } %>
-    <%= link_to "Edit", edit_proposal_path, { :class => "btn btn-large" } %>
+    <%= link_to "Edit", edit_venue_proposal_path, { :class => "btn btn-large" } %>
     <%= link_to "Delete", {}, { :data => { confirm: 'Are you sure?' },
                                 :method => :delete, 
                                 :class => "btn btn-danger btn-large" } %>
@@ -21,13 +21,22 @@
     <div class="page-header">
       <h2>Roster</h2>
     </div>
-    <%= render @proposal.accommodations %>
+    <% unless @proposal.accommodations.blank? %>
+      <%= render @proposal.accommodations %>
+    <% else %>
+      <p class="text-warning">There are no accommodations yet.</p>
+      <p class="text-info">Add yourself to the wait list first, and Peddie Taxi will automatically put you in an accommodation as they become available.</p>
+    <% end %>
   </div>
   <div class="span3">
     <div class="page-header">
       <h2>Wait list</h2>
     </div>
-    <%= render @proposal.accommodations %>
+    <%= link_to "Sign me up on wait list", 
+                new_venue_proposal_signup_path(:proposal_id => @proposal.id),
+                { :class => "btn btn-large btn-block btn-primary" } %>
+    <%= debug @wait_list %>
+    <%#= render @wait_list %>
   </div>
   <div class="span6">
     <div class="page-header">

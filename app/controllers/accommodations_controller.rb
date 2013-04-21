@@ -23,7 +23,7 @@ class AccommodationsController < ApplicationController
     rescue ActiveRecord::RecordNotFound
       redirect_to proposals_path, alert: 'You must select a valid proposal first.'
     end
-  end  
+  end
 
   # GET /accommodations/1/edit
   def edit
@@ -34,14 +34,13 @@ class AccommodationsController < ApplicationController
   # POST /accommodations.json
   def create
     @accommodation = Accommodation.new(accommodation_params)
+    @accommodation.user = current_user
 
     respond_to do |format|
       if @accommodation.save
-        format.html { redirect_to @accommodation.proposal, notice: 'Accommodation was successfully created.' }
-        format.json { render action: 'show', status: :created, location: @accommodation }
+        format.html { redirect_to [@accommodation.proposal.venue, @accommodation.proposal], notice: 'Accommodation was successfully created.' }
       else
         format.html { render action: 'new' }
-        format.json { render json: @accommodation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -51,11 +50,9 @@ class AccommodationsController < ApplicationController
   def update
     respond_to do |format|
       if @accommodation.update(accommodation_params)
-        format.html { redirect_to @accommodation.proposal, notice: 'Accommodation was successfully updated.' }
-        format.json { head :no_content }
+        format.html { redirect_to [@accommodation.proposal.venue, @accommodation.proposal], notice: 'Accommodation was successfully updated.' }
       else
         format.html { render action: 'edit' }
-        format.json { render json: @accommodation.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -66,7 +63,6 @@ class AccommodationsController < ApplicationController
     @accommodation.destroy
     respond_to do |format|
       format.html { redirect_to accommodations_url }
-      format.json { head :no_content }
     end
   end
 

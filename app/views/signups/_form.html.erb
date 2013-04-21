@@ -1,0 +1,75 @@
+<%# h1, span12 %>
+<% content_for :scripts do %>
+  <%#= javascript_include_tag "accommodations" %>
+<% end %>
+<div class="span9">
+  <div class="page-header">
+    <h1><%= h1 %></h1>
+  </div>
+  <%= form_for record, :html => { :class => 'form-horizontal' } do |f| %>
+    <% if @signup.errors.any? %>
+      <div id="error_explanation" class="alert alert-block alert-error">
+        <strong><%= pluralize(@signup.errors.count, "error") %> prohibited this accommodation from being saved:</strong>
+        <ul>
+        <% @signup.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="control-group">
+      <%= f.label :proposal_id, :class => 'control-label' %>
+        <div class="controls">
+          <div class="well">
+            <div class="media">
+              <div class="pull-left">
+                <%= static_map_tag @proposal.venue.latitude, 
+                                   @proposal.venue.longitude,
+                                   :name => @proposal.venue.name %>
+              </div>
+              <div class="media-body">
+                <h4 class="media-heading"><%= @proposal.venue.name %></h4>
+                <%= @proposal.venue.vicinity %><br />
+                <%= @proposal.relative_week %>
+              </div>
+            </div>
+          </div>
+          <%= f.hidden_field :proposal_id, 
+                             { :value => @proposal.id } %>
+        </div>
+    </div>
+
+    <div class="control-group">
+      <%= f.label :accommodation_id, :class => 'control-label' %>
+        <div class="controls">
+          <div class="well">
+            <div class="media">
+              <% unless @accommodation.blank? %>
+                <div class="pull-left">
+                <%= gravatar_image_tag @accommodation.try(:user).try(:email), 
+                                       :gravatar => { 
+                                                      :default => 'http://octodex.github.com/images/forktocat.jpg',
+                                                      :size => 90 } %>
+                </div>
+                <div class="media-body">
+                  <h4 class="media-heading"><%= @accommodation.try(:user).try(:full_name) %></h4>
+                  <%= @accommodation.leaving_at %>&ndash;<%= @accommodation.returning_at %>
+                </div>
+              <% else %>
+                <h4>Wait list</h4>
+              <% end %>
+            </div>
+          </div>
+          <%= f.hidden_field :accommodation_id, 
+                             { :value => @accommodation.try(:id) } %>
+        </div>
+    </div>
+
+    <div class="form-actions">
+      <%= f.submit "Confirm Signup", :class => 'btn btn-primary' %>
+      <%= link_to "Cancel",
+                  venue_proposal_accommodations_path, :class => 'btn' %>
+    </div>
+  <% end %>
+</div>
