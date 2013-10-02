@@ -8,6 +8,8 @@ PeddieTaxi::Application.routes.draw do
     end
   end
 
+  resources :proposals
+
   post '/auth/:provider/callback' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy'
 

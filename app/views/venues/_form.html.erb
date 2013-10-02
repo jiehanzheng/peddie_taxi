@@ -89,10 +89,6 @@
         <%= f.text_area :description, { :class => 'text_area input-block-level',
                                         :rows => 5,
                                         :placeholder => "Optional" } %>
-        <span class="help-block">Describe 
-          this venue: why it is good, what the price range is, what their 
-          opening hours are, etc.
-        </span>
       </div>
     </div>
 
@@ -100,7 +96,8 @@
       <%= f.label :reference, :class => 'control-label' %>
       <div class="controls">
         <%= f.text_field :reference, { :class => 'input-block-level',
-                                       :placeholder => "Optional" } %>
+                                       :placeholder => "Internal use only" } %>
+          <span class="help-block">Do not hack the system by attempting to fill it in manually.</span>
       </div>
     </div>
 

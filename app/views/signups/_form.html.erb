@@ -43,9 +43,9 @@
     <div class="control-group">
       <%= f.label :accommodation_id, :class => 'control-label' %>
         <div class="controls">
-          <div class="well">
-            <div class="media">
-              <% unless @accommodation.blank? %>
+          <% unless @accommodation.blank? %>
+            <div class="well">
+              <div class="media">
                 <div class="pull-left">
                 <%= gravatar_image_tag @accommodation.try(:user).try(:email), 
                                        :gravatar => { 
@@ -56,15 +56,20 @@
                   <h4 class="media-heading"><%= @accommodation.try(:user).try(:full_name) %></h4>
                   <%= @accommodation.leaving_at %>&ndash;<%= @accommodation.returning_at %>
                 </div>
-              <% else %>
-                <h4>Wait list</h4>
-              <% end %>
+              </div>
             </div>
-          </div>
+          <% else %>
+            <span class="help-block">You are signing up for the wait list.</span>
+            <!-- TODO: grammar check -->
+            <span class="help-block">You will be moved to an accommodation as they become available.</span>
+            <span class="help-block">Set a broader time span to increase the likelihood of your request being fulfilled.</span>
+          <% end %>
           <%= f.hidden_field :accommodation_id, 
                              { :value => @accommodation.try(:id) } %>
         </div>
     </div>
+
+    
 
     <div class="form-actions">
       <%= f.submit "Confirm Signup", :class => 'btn btn-primary' %>
